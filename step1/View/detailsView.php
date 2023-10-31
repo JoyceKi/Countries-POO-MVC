@@ -38,7 +38,7 @@
             </tbody>
            
         </table>
-        <a href="../View/countriesView.php" class="btn" >Retour</a>
+        <a href="../index.php" class="btn" >Retour</a>
     </main>
     
 </body>
