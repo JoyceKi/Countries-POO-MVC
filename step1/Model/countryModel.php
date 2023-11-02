@@ -30,24 +30,26 @@ function getCountries()
 }
 
 /**
- * Summary of getOneCountry
+ * pour le titre du tableau dans détails.php
  * @param mixed $id_pays
  * @return array
  */
-function getOneCountry($id_pays)
+function getCountry($pays_id)
 {
     $bdd = getDb();
-    $sql = "SELECT pays FROM countries WHERE id_pays=".$id_pays;
+    $sql = "SELECT pays FROM countries WHERE id_pays = :idPays ";
     $country = $bdd->prepare($sql);
+    $country->bindParam(':idPays', $pays_id);
     $country->execute();
-    return $country->fetchAll();
+    return $country->fetch();
     
-    $bdd = null;
+    //$bdd = null;
 }
 
+
 /**
- * Détails sur chaque pays
- * @param mixed $country_id
+ * Summary of getDetails
+ * @param mixed $pays_id
  * @return array
  */
 function getDetails($pays_id)
@@ -58,5 +60,24 @@ function getDetails($pays_id)
     $pays_id->execute();
     return $pays_id->fetchAll();
     
-    $bdd = null;
+    //$bdd = null;
+}
+
+/**
+ * Summary of saveCountryDetail
+ * @param int $pays_id
+ * @param mixed $detail
+ * @param mixed $donnees
+ * @return array
+ */
+function saveCountryDetail( $pays_id, $detail, $donnees) 
+{
+    $bdd = getDB();
+    $sql = "INSERT INTO details (pays_id, detail, donnees) VALUES (:pays_id, :detail, :donnees,)";
+    $result = $bdd->prepare($sql);
+    $result->bindParam(':pays_id',$pays_id, PDO::PARAM_INT);
+    $result->bindParam(':detail',$detail, PDO::PARAM_STR);
+    $result->bindParam(':donnees ', $donnees, PDO::PARAM_STR);
+    $result->execute();
+    return $result->fetchAll();
 }

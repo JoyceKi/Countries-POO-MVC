@@ -4,18 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Détails</title>
+    <link rel="stylesheet" href="Public/css/normalize.css">
+    <link rel="stylesheet" href="Public/css/style.css">
 </head>
 <body>
     <main>
         <table class="table table-bordered">
       
             <thead>
-            <?php foreach ( $pays as $unPays) { ?>
+            <?php //foreach ( $pays as $unPays) { ?>
                 <tr>
-                    <th colspan="5"><?=$unPays['pays']?></th>
+                    <th colspan="5"><?php echo $countryName['pays'];?></th>
                 </tr>
                 <?php
-                }
+                //}
             ?>
             </thead>
            
@@ -34,11 +36,20 @@
                     }
                 ?>
                 </tr>
-              
-            </tbody>
-           
+            </tbody>           
         </table>
-        <a href="../index.php" class="btn" >Retour</a>
+        <br>
+        <h2>Ajouter une information pour ce pays</h2>
+
+        <form action="index.php?action=addCountryDetail&pays_id=<?= $pays['pays_id'] ?>" method="post">
+            <label for="detail">Clé :</label>
+            <input type="text" name="detail" id="detail" >
+            <label for="donnees">Valeur :</label>
+            <input type="text" name="donnees" id="donnees" >
+            <input type="submit" name="submitBtn" value="Ajouter" >
+        </form>
+        <br>
+        <a href="index.php" class="btn" >Retour</a>
     </main>
     
 </body>

@@ -14,7 +14,7 @@
         <div class="countriesList">
             <?php
             foreach ($countries as $country) { ?>
-                    <a href="./Controller/details.php?pays_id=<?= $country['id_pays']?>"class="btn"><?= $country['pays'] ?><br><span class="text text-secondary " >Afficher les détails</span></a>
+                    <a href="index.php?action=details&pays_id=<?= $country['id_pays']?>" class="btn"><?= $country['pays'] ?><br><span class="text text-secondary " >Afficher les détails</span></a>
                 <?php
                 }
             ?>

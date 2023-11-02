@@ -3,6 +3,10 @@
   font-family: sans-serif;
 }
 
+body {
+  background-color:rgba(250, 235, 215, 0.596);
+}
+
 main {
   max-width: 80%;
   margin: 0 auto;
@@ -25,7 +29,23 @@ main {
   background-color: lightsteelblue;
   color: black;
   padding: 1%;
-  font-weight: 700;
+  font-weight: 600;
+  margin-top: 5% ;
+}
+
+table, th, td {
+  border: 0.5px solid lightblue ;
+  border-collapse: collapse;
+  margin: 5%;
+}
+
+th, td {
+  padding-top: 1%;
+  padding-bottom: 1%;
+}
+
+tr {
+  text-align: center;
 }
 
 
